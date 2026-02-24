@@ -4,9 +4,11 @@ function adicionarProduto() {
     const produto = document.getElementById("produto")
     const codigo = document.getElementById('codigo')
     const quantidade = document.getElementById(`quantidade`)
+    const valor = document.getElementById("valor")
     const spanCodigo = document.createElement('span')
     const spanProduto = document.createElement('span')
     const spanQuantidade = document.createElement("span")
+    const spanValor = document.createElement("span")
     const lista = document.getElementById("lista")
     const div = document.createElement('div')
 
@@ -24,19 +26,23 @@ function adicionarProduto() {
         spanCodigo.textContent = codigo.value
         spanProduto.textContent = produto.value
         spanQuantidade.textContent = quantidade.value
-
+        spanValor.textContent = `R$${valor.value * quantidade.value}`
         spanCodigo.className = 'bg-blue-200 px-8 py-2 '
         spanProduto.className = 'bg-green-200 px-8 py-2 '
         spanQuantidade.className = 'bg-yellow-200 px-8 py-2 '
+        spanValor.className = 'bg-red-200 px-8 py-2'
 
         div.className = "flex gap-2"
 
         div.appendChild(spanCodigo)
         div.appendChild(spanProduto)
         div.appendChild(spanQuantidade)
+        div.appendChild(spanValor)
         lista.appendChild(div)
+
         produto.value = ""
         codigo.value = ""
         quantidade.value = ""
+        valor.value = ""
     }
 }
