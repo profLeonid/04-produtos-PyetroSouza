@@ -4,10 +4,11 @@ function adicionarProduto() {
     const produto = document.getElementById("produto")
     const codigo = document.getElementById('codigo')
     const quantidade = document.getElementById(`quantidade`)
-    const lista = document.getElementById("lista")
     const spanCodigo = document.createElement('span')
     const spanProduto = document.createElement('span')
     const spanQuantidade = document.createElement("span")
+    const lista = document.getElementById("lista")
+    const div = document.createElement('div')
 
     if (produto.value == `` || codigo.value == "" || quantidade.value == "") {
         alert("[ERRO] Campos não preenchidos")
@@ -28,10 +29,12 @@ function adicionarProduto() {
         spanProduto.className = 'bg-green-200 px-8 py-2 '
         spanQuantidade.className = 'bg-yellow-200 px-8 py-2 '
 
-        lista.appendChild(spanCodigo)
-        lista.appendChild(spanProduto)
-        lista.appendChild(spanQuantidade)
+        div.className = "flex gap-2"
 
+        div.appendChild(spanCodigo)
+        div.appendChild(spanProduto)
+        div.appendChild(spanQuantidade)
+        lista.appendChild(div)
         produto.value = ""
         codigo.value = ""
         quantidade.value = ""
